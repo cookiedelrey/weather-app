@@ -30,11 +30,11 @@ export const CurrentWeather = () => {
 
   if (state.id) {
     return (
-      <div className="w-full rounded-[26px] bg-white p-4 dark:bg-slate-600 border-2 mt-8">
-        <div className="flex justify-between items-center">
+      <div className="w-full rounded-[26px] bg-white p-4 text-xl max-sm:text-sm dark:bg-slate-600 border-2 mt-8">
+        <div className="flex p-2 justify-between items-center">
           <span>Current Weather</span>
           <div>
-            <span>F</span>
+            <span className="text-sm">F</span>
             <Switch
               color="default"
               size="small"
@@ -42,19 +42,17 @@ export const CurrentWeather = () => {
               onChange={handleChange}
               inputProps={{ "aria-label": "controlled" }}
             />
-            <span>C</span>
+            <span className="text-sm">C</span>
           </div>
         </div>
-  
-        <p></p>
-        <div className="grid grid-cols-2">
+        <div className="grid p-2 grid-cols-2">
           <div>
             <span>{state.name && state.name}</span>
-            <div className="grid grid-cols-2">
+            <div className="grid grid-cols-2 max-sm:mt-5">
               <div>
-                <WeatherIcon code={state.id} />
+                <WeatherIcon code={state.id} big/>
               </div>
-              <div>
+              <div className="text-[45px] max-sm:text-[30px] font-bold mt-4 ml-[-45%] max-sm:ml-0">
                 {state.mainTemp &&
                   `${
                     checked
@@ -66,10 +64,10 @@ export const CurrentWeather = () => {
             </div>
             <span>{state.description && state.description}</span>
           </div>
-          <div>
+          <div className="max-sm:ml-14 max-sm:text-xs max-sm:mt-5">
             <div className="grid grid-cols-2">
               <span>Feels like</span>
-              <div>
+              <div className="font-bold">
                 {state.feelsLike &&
                   `${
                     checked
@@ -83,7 +81,7 @@ export const CurrentWeather = () => {
               <div>
                 <span>Max</span>
               </div>
-              <div>
+              <div className="font-bold">
                 {state.maxTemp &&
                   `${
                     checked
@@ -97,7 +95,7 @@ export const CurrentWeather = () => {
               <div>
                 <span>Min</span>
               </div>
-              <div>
+              <div className="font-bold">
                 {state.minTemp &&
                   `${
                     checked
@@ -118,6 +116,3 @@ export const CurrentWeather = () => {
 };
 
 export default CurrentWeather;
-function userOutsideClick(arg0: never, arg1: () => void) {
-  throw new Error("Function not implemented.");
-}

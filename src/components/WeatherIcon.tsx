@@ -16,7 +16,7 @@ export interface IWeatherIconProps {
 
 const WeatherIcon: React.FC<IWeatherIconProps> = (props) => {
 let Icon: string;
-console.log(props)
+// console.log(props)
 switch (props.code) {
     // Clear
     case 800:

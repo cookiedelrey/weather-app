@@ -8,7 +8,7 @@ import { ThemeContext } from '@emotion/react';
 function App() {
 
   return (
-      <div className="bg-[#adecff]  text-slate-500 h-screen dark:bg-[rgb(16,27,70)] dark:text-white">
+      <div className="bg-sky-200 text-slate-500 h-screen dark:bg-slate-900  dark:text-white">
         <div className='mx-auto max-w-xl px-4 py-10'>
           <div className='flex justify-between items-center'>
             <h1 className="text-2xl text-slate-500  dark:text-slate-400 font-extrabold">Weather</h1>
