@@ -26,89 +26,95 @@ export const CurrentWeather = () => {
     setChecked(event.target.checked);
   };
 
-  return (
-    <div className="w-full rounded-[26px] bg-white p-4 dark:bg-slate-600 border-2 mt-8">
-      <div className="flex justify-between items-center">
-        <span>Current Weather</span>
-        <div>
-          <span>F</span>
-          <Switch
-            color="default"
-            size="small"
-            checked={checked}
-            onChange={handleChange}
-            inputProps={{ "aria-label": "controlled" }}
-          />
-          <span>C</span>
-        </div>
-      </div>
 
-      <p></p>
-      <div className="grid grid-cols-2">
-        <div>
-          <span>{state.name && state.name}</span>
-          <div className="grid grid-cols-2">
-            <div>
-              <WeatherIcon code={state.id} />
-            </div>
-            <div>
-              {state.mainTemp &&
-                `${
-                  checked
-                    ? Math.round(state.mainTemp - 273.15)
-                    : Math.round(state.mainTemp - 241.15)
-                }`}
-              <sup>&deg;</sup>
-            </div>
-          </div>
-          <span>{state.description && state.description}</span>
-        </div>
-        <div>
-          <div className="grid grid-cols-2">
-            <span>Feels like</span>
-            <div>
-              {state.feelsLike &&
-                `${
-                  checked
-                    ? Math.round(state.feelsLike - 273.15)
-                    : Math.round(state.feelsLike - 241.15)
-                }`}
-              <sup>&deg;</sup>
-            </div>
-          </div>
-          <div className="grid grid-cols-2">
-            <div>
-              <span>Max</span>
-            </div>
-            <div>
-              {state.maxTemp &&
-                `${
-                  checked
-                    ? Math.round(state.maxTemp - 273.15)
-                    : Math.round(state.maxTemp - 241.15)
-                }`}
-              <sup>&deg;</sup>
-            </div>
-          </div>
-          <div className="grid grid-cols-2">
-            <div>
-              <span>Min</span>
-            </div>
-            <div>
-              {state.minTemp &&
-                `${
-                  checked
-                    ? Math.round(state.minTemp - 273.15)
-                    : Math.round(state.minTemp - 241.15)
-                }`}
-              <sup>&deg;</sup>
-            </div>
+
+  if (state.id) {
+    return (
+      <div className="w-full rounded-[26px] bg-white p-4 dark:bg-slate-600 border-2 mt-8">
+        <div className="flex justify-between items-center">
+          <span>Current Weather</span>
+          <div>
+            <span>F</span>
+            <Switch
+              color="default"
+              size="small"
+              checked={checked}
+              onChange={handleChange}
+              inputProps={{ "aria-label": "controlled" }}
+            />
+            <span>C</span>
           </div>
         </div>
-        <div></div>
+  
+        <p></p>
+        <div className="grid grid-cols-2">
+          <div>
+            <span>{state.name && state.name}</span>
+            <div className="grid grid-cols-2">
+              <div>
+                <WeatherIcon code={state.id} />
+              </div>
+              <div>
+                {state.mainTemp &&
+                  `${
+                    checked
+                      ? Math.round(state.mainTemp - 273.15)
+                      : Math.round(state.mainTemp - 241.15)
+                  }`}
+                <sup>&deg;</sup>
+              </div>
+            </div>
+            <span>{state.description && state.description}</span>
+          </div>
+          <div>
+            <div className="grid grid-cols-2">
+              <span>Feels like</span>
+              <div>
+                {state.feelsLike &&
+                  `${
+                    checked
+                      ? Math.round(state.feelsLike - 273.15)
+                      : Math.round(state.feelsLike - 241.15)
+                  }`}
+                <sup>&deg;</sup>
+              </div>
+            </div>
+            <div className="grid grid-cols-2">
+              <div>
+                <span>Max</span>
+              </div>
+              <div>
+                {state.maxTemp &&
+                  `${
+                    checked
+                      ? Math.round(state.maxTemp - 273.15)
+                      : Math.round(state.maxTemp - 241.15)
+                  }`}
+                <sup>&deg;</sup>
+              </div>
+            </div>
+            <div className="grid grid-cols-2">
+              <div>
+                <span>Min</span>
+              </div>
+              <div>
+                {state.minTemp &&
+                  `${
+                    checked
+                      ? Math.round(state.minTemp - 273.15)
+                      : Math.round(state.minTemp - 241.15)
+                  }`}
+                <sup>&deg;</sup>
+              </div>
+            </div>
+          </div>
+          <div></div>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+  return null;
+  
 };
 
 export default CurrentWeather;

@@ -44,10 +44,5 @@ const useGlobalState = () => {
 
 export { GlobalStateProvider, useGlobalState };
 
-function dispatch(arg0: any) {
-    throw new Error("Function not implemented.");
-  }
-  function fetchWeather(arg0: { lat: any; lng: any; }): any {
-    throw new Error("Function not implemented.");
-  }
+
 

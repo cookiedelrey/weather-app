@@ -9,20 +9,6 @@ import { Variant } from "react-loader-ts/lib/esm/components/Loader";
 
 
 
-const useClickOutside = (element: any, callback: Function) => {
-  useEffect(() => {
-    const handleClickOutside = (event: Event) => {
-      if (element.current && !element.current.contains(event.target as any)) {
-        callback();
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  });
-};
-
 const Search = () => {
   const suggestionRef = useRef(null);
   const [suggestions, setSuggestions] = useState<string[]>([]);
@@ -74,6 +60,7 @@ const Search = () => {
       setState(() => ({...data, name: `${city}, ${country}`, id, mainTemp, minTemp, maxTemp, description, feelsLike }));
     });
   }
+
 
   const City = (item: any) => {
     const onClickCity = () => {
